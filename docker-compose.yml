@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  database:
+    image: bitnami/postgresql:15
+    container_name: snacks_here_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: snackshere
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
