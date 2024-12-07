@@ -1,5 +1,5 @@
 import { Order, OrderProduct, Product } from "@entities";
 
 export interface IOrderProductRepository {
-  add: (order: Order, product: Product, quantity: number) => Promise<OrderProduct>
+  add: (order_id: number, product_id: number, quantity: number) => Promise<OrderProduct>
 }
