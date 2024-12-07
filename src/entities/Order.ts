@@ -10,7 +10,7 @@ export class Order {
     public readonly customer_name?: string | null,
   ) {}
 
-  public static mapFromDb(dbOrder: DbOrder, dbOrderProducts: OrderProduct[]): Order {
+  public static mapFromDb(dbOrder: DbOrder, dbOrderProducts?: OrderProduct[]): Order {
     return new Order(
       dbOrder.id,
       dbOrder.status,
