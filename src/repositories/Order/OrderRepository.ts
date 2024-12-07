@@ -18,12 +18,16 @@ export class OrderRepository implements IOrderRepository {
       include: { order_products: { include: { product: true }} },
     })
 
+    return this.mapOrders(orders)
+  }
+
+  private mapOrders(orders: Array<PrismaOrder & { order_products: Array<PrismaOrderProduct & { product: PrismaProduct }> }>): Order[] {
     const mappedOrders = orders.map(order => {
-      const orderProducts = order.order_products.map(orderProduct => 
+      const orderProducts = order.order_products.map(orderProduct =>
         OrderProduct.mapFromDb(orderProduct, orderProduct.product)
-      )
+      );
       return Order.mapFromDb(order, orderProducts);
-    })
+    });
 
     return mappedOrders
   }
