@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { IProductRepository } from './IProductRepository'
 import { Product } from '@entities/Product';
-import { AddProductDTO } from 'src/dtos/AddProductDTO';
+import { AddProductDTO } from '@dtos/AddProductDTO';
 
 const prisma = new PrismaClient();
 

@@ -1,5 +1,5 @@
 import { Product } from "@entities/Product";
-import { AddProductDTO } from "src/dtos/AddProductDTO";
+import { AddProductDTO } from "@dtos/AddProductDTO";
 
 export interface IProductRepository {
   add: (data: AddProductDTO) => Promise<Product>,
