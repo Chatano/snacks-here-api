@@ -1,4 +1,4 @@
-import { Product } from "@entities/Product";
+import { Product } from "@entities";
 import { AddProductDTO } from "@dtos/AddProductDTO";
 
 export interface IProductRepository {

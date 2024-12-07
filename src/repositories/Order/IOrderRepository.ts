@@ -1,4 +1,4 @@
-import { Order } from "@entities/Order";
+import { Order } from "@entities";
 import { RegisterOrderDTO } from "@dtos/RegisterOrderDTO";
 import { ORDER_STATUS } from "@prisma/client";
 

@@ -1,8 +1,6 @@
-import { PrismaClient, Order_Product as PrismaOrderProduct, Product as PrismaProduct, Order as PrismaOrder } from '@prisma/client';
-import { Order } from '@entities/Order';
-import { Product } from '@entities/Product';
+import { PrismaClient } from '@prisma/client';
+import { Order, Product, OrderProduct } from '@entities';
 import { IOrderProductRepository } from './IOrderProductRepository';
-import { OrderProduct } from '@entities/OrderProduct';
 
 const prisma = new PrismaClient();
 

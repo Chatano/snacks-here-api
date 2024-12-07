@@ -11,6 +11,7 @@
       "@contig/*": ["src/contig/*"],
       "@controllers/*": ["src/controllers/*"],
       "@dtos/*": ["src/dtos/*"],
+      "@entities": ["src/entities/index.ts"],
       "@entities/*": ["src/entities/*"],
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
