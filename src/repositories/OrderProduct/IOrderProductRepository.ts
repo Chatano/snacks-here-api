@@ -1,5 +1,6 @@
-import { Order, OrderProduct, Product } from "@entities";
+import { RegisterOrderProductDTO } from "@dtos/RegisterOrderProductDTO";
 
 export interface IOrderProductRepository {
-  add: (order_id: number, product_id: number, quantity: number) => Promise<OrderProduct>
+  add: (props: RegisterOrderProductDTO) => Promise<void>
+  addMany: (props: RegisterOrderProductDTO[]) => Promise<void>
 }
