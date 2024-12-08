@@ -1,4 +1,5 @@
 import type { Order as DbOrder, ORDER_STATUS } from '@prisma/client'
+import { OrderProduct } from './OrderProduct'
 
 export class Order {
   constructor(
