@@ -18,7 +18,8 @@
 		"express": "^4.21.2",
 		"reflect-metadata": "^0.2.2",
 		"tsconfig-paths": "^4.2.0",
-		"tsyringe": "^4.8.0"
+		"tsyringe": "^4.8.0",
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
