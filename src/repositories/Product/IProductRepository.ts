@@ -1,10 +1,10 @@
-import { Product } from "@entities";
-import { AddProductDTO } from "@dtos/AddProductDTO";
+import type { AddProductDTO } from '@dtos/AddProductDTO'
+import type { Product } from '@entities'
 
 export interface IProductRepository {
-  add: (data: AddProductDTO) => Promise<Product>,
-  getAll: () => Promise<Product[]>,
-  getByID: (product_id: number) => Promise<Product | null>,
-  delete: (product_id: number) => Promise<void>,
-  edit: (id: number, updatedFields: Partial<AddProductDTO>) => Promise<Product>,
+  add: (data: AddProductDTO) => Promise<Product>
+  getAll: () => Promise<Product[]>
+  getByID: (productId: number) => Promise<Product | null>
+  delete: (productId: number) => Promise<void>
+  edit: (id: number, updatedFields: Partial<AddProductDTO>) => Promise<Product>
 }

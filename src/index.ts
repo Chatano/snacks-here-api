@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
-import './server'
+import dotenv from 'dotenv'
+import './server.ts'
 
-dotenv.config();
+dotenv.config()

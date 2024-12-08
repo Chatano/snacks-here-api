@@ -1,10 +1,8 @@
-import { AddProductDTO } from "@dtos/AddProductDTO";
-import { IProductRepository } from "@repositories/Product/IProductRepository";
+import type { AddProductDTO } from '@dtos/AddProductDTO'
+import type { IProductRepository } from '@repositories/Product/IProductRepository'
 
 export class ProductService {
-  constructor(
-    private productsRepository: IProductRepository
-  ) {}
+  constructor(private productsRepository: IProductRepository) {}
 
   public async addProduct(dto: AddProductDTO) {
     return await this.productsRepository.add(dto)
@@ -14,15 +12,15 @@ export class ProductService {
     return await this.productsRepository.getAll()
   }
 
-  public async getByID(product_id: number) {
-    return await this.productsRepository.getByID(product_id)
+  public async getByID(productId: number) {
+    return await this.productsRepository.getByID(productId)
   }
 
   public async edit(id: number, updatedFields: Partial<AddProductDTO>) {
     return await this.productsRepository.edit(id, updatedFields)
   }
 
-  public async delete(product_id: number) {
-    await this.productsRepository.delete(product_id)
+  public async delete(productId: number) {
+    await this.productsRepository.delete(productId)
   }
 }

@@ -1,4 +1,4 @@
-import { Product as DbProduct } from '@prisma/client';
+import type { Product as DbProduct } from '@prisma/client'
 
 export class Product {
   constructor(
@@ -8,10 +8,6 @@ export class Product {
   ) {}
 
   public static mapFromDb(dbProduct: DbProduct): Product {
-    return new Product(
-      dbProduct.id,
-      dbProduct.name,
-      dbProduct.price,
-    );
+    return new Product(dbProduct.id, dbProduct.name, dbProduct.price)
   }
 }

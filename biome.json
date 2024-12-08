@@ -17,7 +17,12 @@
     "enabled": true
   },
   "linter": {
-    "enabled": true
+    "enabled": true,
+    "rules": {
+      "correctness": {
+        "useImportExtensions": "off"
+      }
+    }
   },
   "javascript": {
     "formatter": {

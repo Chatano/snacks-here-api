@@ -1,5 +1,4 @@
-import { Order as DbOrder, ORDER_STATUS } from '@prisma/client'
-import { OrderProduct } from './OrderProduct';
+import type { Order as DbOrder, ORDER_STATUS } from '@prisma/client'
 
 export class Order {
   constructor(
@@ -10,13 +9,16 @@ export class Order {
     public readonly customer_name?: string | null,
   ) {}
 
-  public static mapFromDb(dbOrder: DbOrder, dbOrderProducts?: OrderProduct[]): Order {
+  public static mapFromDb(
+    dbOrder: DbOrder,
+    dbOrderProducts?: OrderProduct[],
+  ): Order {
     return new Order(
       dbOrder.id,
       dbOrder.status,
       dbOrderProducts || [],
       new Date(dbOrder.createdAt),
       dbOrder.customer_name,
-    );
+    )
   }
 }

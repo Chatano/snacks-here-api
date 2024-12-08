@@ -1,6 +1,6 @@
-import { Order } from "@entities";
-import { RegisterOrderDTO } from "@dtos/RegisterOrderDTO";
-import { ORDER_STATUS } from "@prisma/client";
+import type { RegisterOrderDTO } from '@dtos/RegisterOrderDTO'
+import type { Order } from '@entities'
+import type { ORDER_STATUS } from '@prisma/client'
 
 export interface IOrderRepository {
   add: (dto: RegisterOrderDTO) => Promise<Order>
