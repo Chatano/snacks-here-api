@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 import dotenv from 'dotenv'
 import './server'
-import '@config'
+import '@config/injection-container'
 
 dotenv.config()
