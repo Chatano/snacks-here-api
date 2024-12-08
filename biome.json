@@ -21,6 +21,9 @@
     "rules": {
       "correctness": {
         "useImportExtensions": "off"
+      },
+      "complexity": {
+        "noStaticOnlyClass": "off"
       }
     }
   },
@@ -28,6 +31,9 @@
     "formatter": {
       "quoteStyle": "single",
       "semicolons": "asNeeded"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   }
 }
