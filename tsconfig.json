@@ -6,9 +6,11 @@
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
 		"skipLibCheck": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
 		"baseUrl": "./",
 		"paths": {
-			"@contig/*": ["src/contig/*"],
+			"@config/*": ["src/config/*"],
 			"@controllers/*": ["src/controllers/*"],
 			"@dtos/*": ["src/dtos/*"],
 			"@entities": ["src/entities/index.ts"],
