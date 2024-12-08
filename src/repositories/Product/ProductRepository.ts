@@ -1,10 +1,12 @@
 import type { AddProductDTO } from '@dtos/AddProductDTO'
 import { Product } from '@entities'
 import { PrismaClient } from '@prisma/client'
+import { injectable } from 'tsyringe'
 import type { IProductRepository } from './IProductRepository'
 
 const prisma = new PrismaClient()
 
+@injectable()
 export class ProductRepository implements IProductRepository {
   public async add(data: AddProductDTO) {
     const product = await prisma.product.create({ data })

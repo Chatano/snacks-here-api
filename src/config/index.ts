@@ -1,0 +1,1 @@
+import './injection-container'

@@ -7,10 +7,12 @@ import {
   type Order_Product as PrismaOrderProduct,
   type Product as PrismaProduct,
 } from '@prisma/client'
+import { injectable } from 'tsyringe'
 import type { IOrderRepository } from './IOrderRepository'
 
 const prisma = new PrismaClient()
 
+@injectable()
 export class OrderRepository implements IOrderRepository {
   public async add(data: RegisterOrderDTO) {
     const order = await prisma.order.create({ data })

@@ -1,8 +1,11 @@
 import type { AddProductDTO } from '@dtos/AddProductDTO'
 import type { IProductRepository } from '@repositories/Product/IProductRepository'
+import { inject } from 'tsyringe'
 
 export class ProductService {
-  constructor(private productsRepository: IProductRepository) {}
+  constructor(
+    @inject('ProductRepository') private productsRepository: IProductRepository,
+  ) {}
 
   public async addProduct(dto: AddProductDTO) {
     return await this.productsRepository.add(dto)
