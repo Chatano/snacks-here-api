@@ -7,7 +7,6 @@
 		"build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
 		"start": "node dist/index.js",
 		"dev": "nodemon -r tsconfig-paths/register src/index.ts",
-
 		"lint": "biome check --fix --unsafe"
 	},
 	"keywords": [],
@@ -17,7 +16,9 @@
 		"@prisma/client": "6.0.1",
 		"dotenv": "^16.4.7",
 		"express": "^4.21.2",
-		"tsconfig-paths": "^4.2.0"
+		"reflect-metadata": "^0.2.2",
+		"tsconfig-paths": "^4.2.0",
+		"tsyringe": "^4.8.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
