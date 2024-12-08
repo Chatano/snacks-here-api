@@ -1,7 +1,8 @@
 import type { IOrderRepository } from '@repositories/Order/IOrderRepository'
 import type { IOrderProductRepository } from '@repositories/OrderProduct/IOrderProductRepository'
-import { inject } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 
+@injectable()
 export class OrderService {
   constructor(
     @inject('OrderRepository') private ordersRepository: IOrderRepository,

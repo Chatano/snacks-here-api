@@ -1,7 +1,8 @@
 import type { AddProductDTO } from '@dtos/AddProductDTO'
 import type { IProductRepository } from '@repositories/Product/IProductRepository'
-import { inject } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 
+@injectable()
 export class ProductService {
   constructor(
     @inject('ProductRepository') private productsRepository: IProductRepository,
