@@ -1,7 +1,7 @@
-import type { Order as DbOrder, ORDER_STATUS } from '@prisma/client'
+import { Order as DbOrder, ORDER_STATUS } from '@prisma/client'
 import type { OrderProduct } from './OrderProduct'
 
-export class Order {
+class Order {
   constructor(
     public readonly id: number,
     public readonly status: ORDER_STATUS,
@@ -23,3 +23,5 @@ export class Order {
     )
   }
 }
+
+export { ORDER_STATUS, Order }
