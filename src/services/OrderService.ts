@@ -1,3 +1,4 @@
+import { ORDER_STATUS } from '@entities';
 import type { IOrderRepository } from '@repositories/Order/IOrderRepository'
 import type { IOrderProductRepository } from '@repositories/OrderProduct/IOrderProductRepository'
 import { inject, injectable } from 'tsyringe'
@@ -21,5 +22,9 @@ export class OrderService {
         return { ...orderProduct, order_id: orderId }
       }),
     )
+  }
+
+  public async changeOrderStatus(order_id: number, status: ORDER_STATUS) {
+    return await this.ordersRepository.changeOrderStatus(order_id, status)
   }
 }
