@@ -26,6 +26,11 @@ export class OrderRepository implements IOrderRepository {
 
     return Order.mapFromDb(order)
   }
+
+  public async getOrderByID(id: number) {
+    const order = await prisma.order.findUnique({ where: { id }})
+    return order ? Order.mapFromDb(order) : null
+  }
   
   public async getOrders(status?: ORDER_STATUS) {
     const orders = await prisma.order.findMany({
