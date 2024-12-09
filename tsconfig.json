@@ -17,7 +17,9 @@
 			"@entities/*": ["src/entities/*"],
 			"@routes/*": ["src/routes/*"],
 			"@services/*": ["src/services/*"],
-			"@repositories/*": ["src/repositories/*"]
+			"@repositories/*": ["src/repositories/*"],
+			"@errors/*": ["src/errors/*"],
+			"@useCases/*": ["src/useCases/*"]
 		},
 		"outDir": "./dist"
 	}
