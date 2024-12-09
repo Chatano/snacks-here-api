@@ -1,4 +1,5 @@
 import { ORDER_STATUS } from '@entities';
+import { AppError } from '@errors/app-error';
 import type { IOrderRepository } from '@repositories/Order/IOrderRepository'
 import type { IOrderProductRepository } from '@repositories/OrderProduct/IOrderProductRepository'
 import { inject, injectable } from 'tsyringe'
@@ -25,6 +26,10 @@ export class OrderService {
   }
 
   public async changeOrderStatus(order_id: number, status: ORDER_STATUS) {
+    const foundOrder = await this.ordersRepository.getOrderByID(order_id)
+
+    if (!foundOrder) throw new AppError('Product ID not found', 404)
+
     return await this.ordersRepository.changeOrderStatus(order_id, status)
   }
 }
