@@ -12,8 +12,9 @@ export class OrderService {
 
   public async createOrder(
     orderProductsDto: Array<{ product_id: number; quantity: number }>,
+    customer_name?: string
   ) {
-    const { id: orderId } = await this.ordersRepository.add({})
+    const { id: orderId } = await this.ordersRepository.add({ customer_name })
 
     await this.orderProductsRepository.addMany(
       orderProductsDto.map((orderProduct) => {
