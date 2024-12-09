@@ -11,7 +11,7 @@ const schema = z.object({
       product_id: z.number(),
       quantity: z.number().positive().min(1)
     })
-  ),
+  ).min(1),
   customer_name: z.string().optional()
 })
 
