@@ -26,6 +26,12 @@ export class ProductRepository implements IProductRepository {
     return Product.mapFromDb(product)
   }
 
+  public async getByIds(ids: number[]) {
+    const products = await prisma.product.findMany({ where: { id: { in: ids }}})
+
+    return products.map(Product.mapFromDb)
+  }
+
   public async delete(id: number) {
     await prisma.product.delete({ where: { id } })
   }
