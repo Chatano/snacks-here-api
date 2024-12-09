@@ -21,6 +21,10 @@ export class ProductService {
     return await this.productsRepository.getByID(productId)
   }
 
+  public async getByIds(ids: number[]) {
+    return await this.productsRepository.getByIds(ids)
+  }
+
   public async edit(id: number, updatedFields: Partial<AddProductDTO>) {
     const foundOrder = await this.productsRepository.getByID(id)
 
@@ -31,7 +35,6 @@ export class ProductService {
 
   public async delete(id: number) {
     const foundOrder = await this.productsRepository.getByID(id)
-    
     if (!foundOrder) throw new AppError('Product ID not found', 404)
 
     await this.productsRepository.delete(id)
