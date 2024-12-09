@@ -1,5 +1,5 @@
-import { ORDER_STATUS } from '@entities';
-import { AppError } from '@errors/app-error';
+import type { ORDER_STATUS } from '@entities'
+import { AppError } from '@errors/app-error'
 import type { IOrderRepository } from '@repositories/Order/IOrderRepository'
 import type { IOrderProductRepository } from '@repositories/OrderProduct/IOrderProductRepository'
 import { inject, injectable } from 'tsyringe'
@@ -14,7 +14,7 @@ export class OrderService {
 
   public async createOrder(
     orderProductsDto: Array<{ product_id: number; quantity: number }>,
-    customer_name?: string
+    customer_name?: string,
   ) {
     const { id: orderId } = await this.ordersRepository.add({ customer_name })
 

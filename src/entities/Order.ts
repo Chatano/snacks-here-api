@@ -1,4 +1,4 @@
-import { Order as DbOrder, ORDER_STATUS } from '@prisma/client'
+import { type Order as DbOrder, ORDER_STATUS } from '@prisma/client'
 import type { OrderProduct } from './OrderProduct'
 
 class Order {

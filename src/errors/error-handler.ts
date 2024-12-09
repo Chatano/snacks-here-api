@@ -1,35 +1,39 @@
-import { Request, Response, NextFunction } from 'express';
-import { ZodError } from 'zod';
-import { AppError } from './app-error';
-import { fromError } from 'zod-validation-error';
+import type { NextFunction, Request, Response } from 'express'
+import { ZodError } from 'zod'
+import { fromError } from 'zod-validation-error'
+import { AppError } from './app-error'
 
 export class ErrorHandler {
-  static handle(err: any, req: Request, res: Response, next: NextFunction): void {
+  static handle(
+    err: unknown,
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): void {
     // zod error
     if (err instanceof ZodError) {
       res.status(400).json({
         status: 'error',
         message: 'Validation failed',
         errors: fromError(err).toString(),
-      });
-      return;
+      })
+      return
     }
-    
+
     // app error
     if (err instanceof AppError) {
       res.status(err.statusCode).json({
         status: 'error',
         message: err.message,
-      });
-      return;
+      })
+      return
     }
-    
+
     // unexpected error
-    console.error('Internal Server Error:', err);
+    console.error('Internal Server Error:', err)
     res.status(500).json({
       status: 'error',
       message: 'Internal server error',
-    });
+    })
   }
 }
-

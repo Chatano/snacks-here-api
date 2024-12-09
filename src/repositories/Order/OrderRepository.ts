@@ -1,5 +1,5 @@
 import type { RegisterOrderDTO } from '@dtos/RegisterOrderDTO'
-import { Order, ORDER_STATUS, OrderProduct } from '@entities/index'
+import { type ORDER_STATUS, Order, OrderProduct } from '@entities/index'
 import {
   PrismaClient,
   type Order as PrismaOrder,
@@ -21,17 +21,17 @@ export class OrderRepository implements IOrderRepository {
   public async changeOrderStatus(order_id: number, status: ORDER_STATUS) {
     const order = await prisma.order.update({
       where: { id: order_id },
-      data: { status }
+      data: { status },
     })
 
     return Order.mapFromDb(order)
   }
 
   public async getOrderByID(id: number) {
-    const order = await prisma.order.findUnique({ where: { id }})
+    const order = await prisma.order.findUnique({ where: { id } })
     return order ? Order.mapFromDb(order) : null
   }
-  
+
   public async getOrders(status?: ORDER_STATUS) {
     const orders = await prisma.order.findMany({
       where: { status },
@@ -40,7 +40,6 @@ export class OrderRepository implements IOrderRepository {
 
     return this.mapOrders(orders)
   }
-
 
   private mapOrders(
     orders: Array<
