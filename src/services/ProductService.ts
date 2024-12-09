@@ -1,4 +1,5 @@
 import type { AddProductDTO } from '@dtos/AddProductDTO'
+import { AppError } from '@errors/app-error'
 import type { IProductRepository } from '@repositories/Product/IProductRepository'
 import { inject, injectable } from 'tsyringe'
 
@@ -21,10 +22,18 @@ export class ProductService {
   }
 
   public async edit(id: number, updatedFields: Partial<AddProductDTO>) {
+    const foundOrder = await this.productsRepository.getByID(id)
+
+    if (!foundOrder) throw new AppError('Product ID not found', 404)
+
     return await this.productsRepository.edit(id, updatedFields)
   }
 
-  public async delete(productId: number) {
-    await this.productsRepository.delete(productId)
+  public async delete(id: number) {
+    const foundOrder = await this.productsRepository.getByID(id)
+    
+    if (!foundOrder) throw new AppError('Product ID not found', 404)
+
+    await this.productsRepository.delete(id)
   }
 }
